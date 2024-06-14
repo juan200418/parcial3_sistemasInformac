@@ -1,0 +1,8 @@
+<h1>login </h1>
+<form action="/aceptar/" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        aceptar
+    </button>
+</form>
