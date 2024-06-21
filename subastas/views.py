@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
+from django.contrib.auth import login
+from django.http import HttpResponse
+from django.db import IntegrityError
 
 def home(request):
     return render(request, 'index.html')
 
-def login(request):
+def loginP(request):
     if request.method == 'GET':
         return render(request, 'login.html', {
             'form': UserCreationForm()
@@ -24,8 +26,9 @@ def login(request):
             try:
                 user = User.objects.create_user(username=username, password=password2)
                 user.save()
-                return HttpResponse('User created successfully')
-            except:
+                login(request, user)
+                return redirect('perfil')
+            except IntegrityError:
                 return render(request, 'login.html', {
                 'form': UserCreationForm ,
                 "error": 'usuario ya existe'
@@ -37,3 +40,6 @@ def login(request):
                 'form': UserCreationForm ,
                 "error": 'password do not match'
                 })
+
+def perfil (request):
+    return render(request, 'perfil.html')

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Subastas JC{% endblock %}</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        /* Estilos del encabezado */
+        header {
+            background-color: #333; /* Color de fondo para el encabezado */
+            color: white; /* Color del texto */
+            padding: 5px; /* Espaciado interno */
+            text-align: center;
+            width: 100%; /* Ancho completo del contenedor */
+            position: fixed; /* Fijar el encabezado */
+            top: 0; /* Fijar en la parte superior */
+            left: 0;
+        }
+        
+        /* Estilos del pie de página */
+        footer {
+            background-color: #333; /* Color de fondo para el pie de página */
+            color: white; /* Color del texto */
+            padding: 3px; /* Espaciado interno */
+            text-align: center;
+            width: 100%; /* Ancho completo del contenedor */
+            position: fixed; /* Fijar el pie de página */
+            bottom: 0; /* Fijar en la parte inferior */
+            left: 0;
+        }
+        
+        /* Estilos del contenido */
+        .container {
+            background-color: #fff; /* Color de fondo */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 8px; /* Borde redondeado */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            text-align: center;
+            max-width: 800px; /* Ancho máximo */
+            width: 200%; /* Ancho completo del contenedor */
+            margin-top: 80px; /* Ajuste para evitar que el contenido se superponga con el encabezado */
+            margin-bottom: 80px; /* Ajuste para evitar que el contenido se superponga con el pie de página */
+        }
+        
+        /* Estilos para elementos dentro del contenedor */
+        .item {
+            margin-bottom: 20px; /* Espacio inferior entre elementos */
+        }
+        
+        /* Estilos para imágenes */
+        img {
+            width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+            max-width: 100%; /* Ancho máximo igual al contenedor */
+            height: auto; /* Altura automática para mantener la proporción */
+            border-radius: 8px; /* Borde redondeado */
+        }
+        
+        /* Estilos para párrafos y títulos */
+        p, h2 {
+            margin: 10px 0; /* Margen superior e inferior */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Subastas JC</h1>
+    </header>
+    
+    <!-- Contenido específico de cada página -->
+        {% block content %}
+        <!-- Contenido específico de cada página irá aquí -->
+        {% endblock %}
+    
+    <!-- Pie de página -->
+    <footer>
+        <h6>juan carlos jaimes </h6>
+    </footer>
+</body>
+</html>
