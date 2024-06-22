@@ -86,7 +86,7 @@
         <p>Correo electrónico: usuario@example.com</p>
         <p>Dirección: Ciudad, País</p>
         <p>Teléfono: +1234567890</p>
-        <a href="#" class="logout">Salir del perfil</a>
+        <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
     </div>
     
     <div class="products">
@@ -100,5 +100,6 @@
         <!-- Puedes agregar más productos aquí -->
     </div>
 </body>
+
 </html>
 {% endblock %}
