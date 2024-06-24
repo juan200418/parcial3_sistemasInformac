@@ -53,7 +53,9 @@ def crate_task (request):
             'form': TaskForm         
         })
     else:
-        print (request.POST)
+        form =TaskForm(request.POST)
+        new_task=form.save(commit=False)
+        print(new_task)
         return render (request, 'create_task.html', {
             'form': TaskForm         
         })
