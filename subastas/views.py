@@ -5,7 +5,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.db import IntegrityError
-
+from .forms import TaskForm
 def home(request):
     return render(request, 'index.html')
 
@@ -46,6 +46,12 @@ def loginP(request):
 
 def perfil(request):
     return render(request, 'perfil.html')
+
+def crate_task (request):
+    return  render (request, 'create_task.html', {
+        'form': TaskForm
+                    
+    })
 
 def signout(request):
     logout(request)
