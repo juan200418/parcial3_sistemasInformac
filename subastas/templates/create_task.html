@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>crear subasta </h1>
+    <h1>Crear Subasta</h1>
 
-    <form action=" /task/create" method="POST">
+    <form action="/perfil/create" method="POST" >
+        {% csrf_token %}
 
-        {{form}}
-        
+        {{ form }}
+
+        <button>
+            crear
+        </button>
     </form>
-
 
 {% endblock %}
