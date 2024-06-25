@@ -12,46 +12,68 @@
             font-family: Arial, sans-serif;
             display: flex;
             align-items: flex-start;
-            justify-content: flex-end; /* Alinea los elementos al final (derecha) */
+            justify-content: center; /* Centra los elementos horizontalmente */
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
             padding: 20px;
         }
         
+        /* Contenedor principal */
+        .container {
+            max-width: 1400px; /* Ancho máximo del contenido */
+            width: 100%; /* Ocupa todo el ancho disponible */
+            display: flex;
+            justify-content: flex-end; /* Alinea el perfil a la derecha */
+            align-items: flex-start;
+        }
+        
         /* Estilos del perfil */
         .profile {
-            width: 200px;
+            width: 300px; /* Ancho del perfil */
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-left: auto; /* Empuja el perfil hacia la derecha */
+            margin-left: auto; /* Mueve el perfil hacia la derecha */
         }
         
         .profile img {
-            width: 200px;
-            height: 400px;
-            object-fit: cover;
+            width: 100%; /* Ocupa todo el ancho del contenedor */
+            height: auto;
             border-radius: 50%;
             margin-bottom: 10px;
         }
         
         .profile h2 {
             margin-bottom: 10px;
+            text-align: center;
         }
         
         .profile p {
             margin-bottom: 5px;
+            text-align: center;
         }
         
         .profile .logout {
             margin-top: 20px;
+            text-align: center;
+        }
+        
+        .profile ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .profile ul li {
+            margin-bottom: 10px;
         }
         
         /* Estilos de los productos */
         .products {
-            flex: 1;
+            flex: 1; /* Ocupa el espacio restante */
             margin-left: 20px;
         }
         
@@ -80,26 +102,34 @@
     </style>
 </head>
 <body>
-    <div class="profile">
-        <img src="ruta/a/imagen_de_perfil.jpg" alt="Imagen de perfil">
-        <h2>Nombre de Usuario</h2>
-        <p>Correo electrónico: usuario@example.com</p>
-        <p>Dirección: Ciudad, País</p>
-        <p>Teléfono: +1234567890</p>
-        <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
-    </div>
     
-    <div class="products">
-        <div class="product">
-            <img src="ruta/a/imagen_de_producto.jpg" alt="Imagen del producto">
-            <h3>Producto 1</h3>
-            <p>Descripción corta del producto.</p>
-            <p>Precio: $100</p>
+    <div class="container">
+        <div class="products">
+            <div class="product">
+                <img src="ruta/a/imagen_de_producto.jpg" alt="Imagen del producto">
+                <h3>Producto 1</h3>
+                <p>Descripción corta del producto.</p>
+                <p>Precio: $100</p>
+            </div>
+            
+            <!-- Puedes agregar más productos aquí -->
         </div>
         
-        <!-- Puedes agregar más productos aquí -->
+        <div class="profile">
+            <img src="ruta/a/imagen_de_perfil.jpg" alt="Imagen de perfil">
+            <h2>Nombre de Usuario</h2>
+            <p>Correo electrónico: usuario@example.com</p>
+            <p>Dirección: Ciudad, País</p>
+            <p>Teléfono: +1234567890</p>
+            <ul>
+                <li><a href="{% url 'create_task' %}">Crear Tarea</a></li>
+                <li><a href="#">Eliminar Tarea</a></li>
+                <li><a href="#">Editar Tarea</a></li>
+                <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+            </ul>
+        </div>
     </div>
-</body>
 
+</body>
 </html>
 {% endblock %}
