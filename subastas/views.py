@@ -6,6 +6,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.db import IntegrityError
 from .forms import TaskForm
+from .models import Task
+from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'index.html')
 
@@ -52,14 +54,19 @@ def crate_task (request):
         return render (request, 'create_task.html', {
             'form': TaskForm         
         })
+        
     else:
-        form =TaskForm(request.POST)
-        new_task=form.save(commit=False)
-        print(new_task)
-        return render (request, 'create_task.html', {
-            'form': TaskForm         
-        })
-
+        try:
+            form = TaskForm(request.POST)
+            new_Task = form.save(commit=False)
+            new_Task.user = request.user
+            new_Task.save()
+            return redirect('perfil')
+        except ValueError:
+            return render(request, 'create_task.html', {
+                "form": TaskForm,
+                'error ': 'pleace privide valida data'
+            })
 def signout(request):
     logout(request)
     return redirect('home')
@@ -80,5 +87,3 @@ def signin(request):
         else:
             login(request,user)
             return redirect('perfil')
-
-        

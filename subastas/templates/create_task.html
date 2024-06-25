@@ -3,6 +3,8 @@
 {% block content %}
     <h1>Crear Subasta</h1>
 
+    {{error}}
+
     <form action="/perfil/create" method="POST" >
         {% csrf_token %}
 
