@@ -9,7 +9,8 @@ from .forms import TaskForm
 from .models import Task
 from django.contrib.auth.decorators import login_required
 def home(request):
-    return render(request, 'index.html')
+    tareas = Task.objects.all()
+    return render(request, 'index.html', {'task': tareas})
 
 def loginP(request):
     if request.method == 'GET':
@@ -47,7 +48,8 @@ def loginP(request):
             })
 
 def perfil(request):
-    return render(request, 'perfil.html')
+    tasks=Task.objects.filter(user=request.user)
+    return render(request, 'perfil.html', {'tasks':tasks})
 
 def crate_task (request):
     if request.method == 'GET':

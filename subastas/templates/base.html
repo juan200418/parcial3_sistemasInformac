@@ -70,26 +70,59 @@
         p, h2 {
             margin: 10px 0; /* Margen superior e inferior */
         }
+        /* Estilos específicos para los botones de autenticación en el encabezado */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px; /* Ajuste el margen derecho según sea necesario */
+}
+
+.header-buttons .auth-button {
+    background-color: #555; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Ajuste de padding */
+    border: none; /* Quitar borde */
+    border-radius: 20px; /* Borde redondeado */
+    cursor: pointer; /* Cambiar cursor a pointer */
+    transition: background-color 0.3s ease; /* Transición suave */
+    margin-left: 10px; /* Espacio entre botones */
+}
+
+.header-buttons .auth-button a {
+    text-decoration: none; /* Quitar subrayado del enlace */
+    color: white; /* Color del texto del enlace */
+}
+
+.header-buttons .auth-button:hover {
+    background-color: #777; /* Cambio de color al pasar el mouse */
+}
+
     </style>
 </head>
 <body>
     <header>
         <h1>Subastas JC</h1>
-    </header>
-    <ul>
-        {% if user.is_autehenticated %}
         
+        {% if not user.is_authenticated %}
+        <!-- Si el usuario no está autenticado -->
+        <div class="header-buttons">
+            <button class="auth-button">
+                <a href="/login/">Registrarse</a>
+            </button>
+            <button class="auth-button">
+                <a href="/signin/">Iniciar sesión</a>
+            </button>
+            
         {% endif %}
-    </ul>
+    </header>
     
-    <!-- Contenido específico de cada página -->
         {% block content %}
         <!-- Contenido específico de cada página irá aquí -->
         {% endblock %}
-    
-    <!-- Pie de página -->
+ 
     <footer>
-        <h6>juan carlos jaimes </h6>
+        <h6>Juan Carlos Jaimes</h6>
     </footer>
 </body>
 </html>

@@ -1,10 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Subastas</title>
     
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,8 +43,7 @@
     </style>
 </head>
 <body>
-    {% extends 'base.html' %}
-    {% block content %}
+    
     <li>
         <a href="/login">registrarse</a>  
     </li>
@@ -52,17 +52,19 @@
     </li>
     <div class="container">
         <div class="item">
-            <h2>Artículo 1</h2>
-            <img src="" alt="Imagen del artículo">
-            <div>
-                <p>Descripción del artículo</p>
-                <h2>Precio</h2>
-                <p>$100</p>
+            {% for tarea in task %}
+            <div class="item">
+                <h3>{{ tarea.title }}</h3>
+                {% if tarea.image %}
+                    <img src="{{ tarea.image.url }}" alt="{{ tarea.title }}">
+                {% endif %}
+                <p>{{ tarea.description }}</p>
+                <p>{{ tarea.precio }}</p>
             </div>
+            {% endfor %}
         </div>
-        <!-- Puedes agregar más artículos aquí siguiendo la misma estructura -->
     </div>
-    {% endblock %}
+    
 </body>
-
 </html>
+{% endblock %}

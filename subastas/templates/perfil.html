@@ -21,7 +21,7 @@
         
         /* Contenedor principal */
         .container {
-            max-width: 1400px; /* Ancho máximo del contenido */
+            max-width: 2000px; /* Ancho máximo del contenido */
             width: 100%; /* Ocupa todo el ancho disponible */
             display: flex;
             justify-content: flex-end; /* Alinea el perfil a la derecha */
@@ -106,21 +106,24 @@
     <div class="container">
         <div class="products">
             <div class="product">
-                <img src="ruta/a/imagen_de_producto.jpg" alt="Imagen del producto">
-                <h3>Producto 1</h3>
-                <p>Descripción corta del producto.</p>
-                <p>Precio: $100</p>
+                {% for tasks in tasks %}
+                    <div>
+                        <h3>{{tasks.title}}</h3>
+                        <img src="{{tasks.image}}">
+                        <p>{{tasks.desciption}}</p>
+                        <p>{{tasks.precio}}</p>
+                    </div>
+                    
+                {% endfor %}
+            
             </div>
             
             <!-- Puedes agregar más productos aquí -->
         </div>
         
         <div class="profile">
-            <img src="ruta/a/imagen_de_perfil.jpg" alt="Imagen de perfil">
-            <h2>Nombre de Usuario</h2>
-            <p>Correo electrónico: usuario@example.com</p>
-            <p>Dirección: Ciudad, País</p>
-            <p>Teléfono: +1234567890</p>
+
+            <h2>{{tasks.user.username}}</h2>
             <ul>
                 <li><a href="{% url 'create_task' %}">Crear Tarea</a></li>
                 <li><a href="#">Eliminar Tarea</a></li>
