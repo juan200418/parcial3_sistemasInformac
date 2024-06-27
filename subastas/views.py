@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.utils.datastructures import MultiValueDictKeyError
@@ -52,7 +53,7 @@ def perfil(request):
     all_tasks = Task.objects.all()
     return render(request, 'perfil.html', {'user_tasks': user_tasks, 'all_tasks': all_tasks})
 
-
+@login_required
 def crate_task (request):
     if request.method == 'GET':
         return render (request, 'create_task.html', {
@@ -71,6 +72,26 @@ def crate_task (request):
                 "form": TaskForm,
                 'error ': 'pleace privide valida data'
             })
+@login_required
+def eliminar_tarea(request, task_id):
+    task = get_object_or_404(Task, id=task_id, user=request.user)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('perfil')
+    return render(request, 'eliminar_tarea.html', {'task': task})
+
+@login_required
+def editar_tarea(request, task_id):
+    task = get_object_or_404(Task, id=task_id, user=request.user)
+    if request.method == 'POST':
+        form = TaskForm(request.POST, request.FILES, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'editar_tarea.html', {'form': form, 'task': task})
+
 def signout(request):
     logout(request)
     return redirect('home')

@@ -26,5 +26,6 @@ urlpatterns = [
     path('perfil/create', views.crate_task, name='create_task'),
     path('logout/', views.signout, name='logout'),
     path('signin/', views.signin, name='signin'),
-
+    path('eliminar_tarea/<int:task_id>/', views.eliminar_tarea, name='eliminar_tarea'),
+    path('editar_tarea/<int:task_id>/', views.editar_tarea, name='editar_tarea'),
 ]

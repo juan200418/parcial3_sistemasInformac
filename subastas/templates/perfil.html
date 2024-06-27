@@ -11,86 +11,80 @@
             font-family: Arial, sans-serif;
             display: flex;
             align-items: flex-start;
-            justify-content: center; /* Centra los elementos horizontalmente */
-            height: 100vh;
+            justify-content: center;
             margin: 0;
-            background-color: #ccc; /* Color de fondo en gama de grises */
+            background-color: #ccc;
             padding: 20px;
-            height: 400%; /* Altura máxima del contenedor */
+            height: 400%;
         }
 
-        /* Contenedor principal */
         .container {
-            max-width: 2000px; /* Ancho máximo del contenido */
-            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 2000px;
+            width: 100%;
             display: flex;
-            justify-content: flex-end; /* Alinea el perfil a la derecha */
+            justify-content: flex-end;
             align-items: flex-start;
-            position: relative; /* Importante para usar position: sticky en profile */
-            overflow-y: auto; /* Scroll vertical cuando sea necesario */
-            height: 400%; /* Altura máxima del contenedor */
+            position: relative;
+            overflow-y: auto;
+            height: 400%;
         }
 
-        /* Estilos del perfil */
         .profile {
-            width: 300px; /* Ancho del perfil */
-            height: 60%; /* Altura del perfil */
-            background-color: #8a83832c; /* Color de fondo con transparencia */
+            width: 300px;
+            height: 60%;
+            background-color: #8a83832c;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: sticky;
-            top: 20px; /* Ajusta la distancia desde arriba */
-            left: 20px; /* Ajusta la distancia desde la izquierda */
+            top: 20px;
+            left: 20px;
         }
 
-        /* Estilos de los botones */
         .auth-button {
-            background-color: #555; /* Color de fondo del botón */
-            color: white; /* Color del texto */
-            padding: 15px 25px; /* Ajuste de padding */
-            border: none; /* Quitar borde */
-            border-radius: 15px; /* Borde redondeado */
-            cursor: pointer; /* Cambiar cursor a pointer */
-            transition: background-color 0.3s ease; /* Transición suave */
-            display: block; /* Mostrar como bloque para ocupar todo el ancho disponible */
-            margin-bottom: 10px; /* Espacio entre botones */
-            text-align: center; /* Centrar texto dentro del botón */
-            text-decoration: none; /* Quitar subrayado del enlace */
-            font-size: 18px; /* Tamaño de fuente */
-            width: 100%; /* Ocupa todo el ancho disponible */
-            max-width: 200px; /* Ancho máximo */
+            background-color: #555;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            width: 100%;
+            max-width: 200px;
         }
 
         .auth-button:hover {
-            background-color: #777; /* Cambio de color al pasar el mouse */
+            background-color: #777;
         }
 
-        /* Estilos para el botón "Mostrar Todos los Productos" */
         .toggle-button {
-            background-color: #555; /* Color de fondo del botón */
-            color: white; /* Color del texto */
-            padding: 15px 25px; /* Ajuste de padding */
-            border: none; /* Quitar borde */
-            border-radius: 15px; /* Borde redondeado */
-            cursor: pointer; /* Cambiar cursor a pointer */
-            transition: background-color 0.3s ease; /* Transición suave */
-            display: block; /* Mostrar como bloque para ocupar todo el ancho disponible */
-            margin-bottom: 10px; /* Espacio debajo del botón */
-            text-align: center; /* Centrar texto dentro del botón */
-            text-decoration: none; /* Quitar subrayado del enlace */
-            font-size: 18px; /* Tamaño de fuente */
-            width: 100%; /* Ocupa todo el ancho disponible */
-            max-width: 300px; /* Ancho máximo */
+            background-color: #555;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            width: 100%;
+            max-width: 300px;
         }
 
         .toggle-button:hover {
-            background-color: #777; /* Cambio de color al pasar el mouse */
+            background-color: #777;
         }
 
-        /* Ajustes adicionales */
         .profile img {
-            width: 100%; /* Ocupa todo el ancho del contenedor */
+            width: 100%;
             height: auto;
             border-radius: 50%;
             margin-bottom: 10px;
@@ -122,25 +116,24 @@
             margin-bottom: 10px;
         }
 
-        /* Estilos de los productos */
         .products {
-            flex: 1; /* Ocupa el espacio restante */
+            flex: 1;
             margin-left: 20px;
-            overflow-y: auto; /* Scroll vertical cuando sea necesario */
+            overflow-y: auto;
         }
 
         .product {
-            background-color: #fff;
+            background-color: #cacaca;
             padding: 10px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
 
         .product img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
@@ -151,47 +144,160 @@
         .product p {
             margin-bottom: 5px;
         }
+
+        .product-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 95%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .product-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-container h3 {
+            margin-bottom: 10px;
+        }
+
+        .product-container p {
+            margin-bottom: 10px;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .product-info .details {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .product-container form,
+        .product-container a {
+            margin-top: 10px;
+        }
+
+        .product-container a {
+            background-color: #555;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-container a:hover {
+            background-color: #777;
+        }
+
+        .product-container button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-container button:hover {
+            background-color: #c0392b;
+        }
+
+        #all-tasks {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #all-tasks h2 {
+            margin-bottom: 10px;
+        }
+
+        #all-tasks .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            max-width: 95%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        #all-tasks .container img {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        #all-tasks .container h3 {
+            margin-bottom: 10px;
+        }
+
+        #all-tasks .container p {
+            margin-bottom: 10px;
+        }
     </style>
-
-
 </head>
 <body>
 <div class="container">
     <div class="products">
         <div class="product">
             {% for task in user_tasks %}
-            <div>
+            <div class="container product-container">
                 <h3>{{ task.title }}</h3>
-                <img src="{{ task.image }}">
-                <p>{{ task.description }}</p>
-                <p>{{ task.precio }}</p>
+                <img src="{{ task.image }}" alt="Imagen del producto">
+                <div class="product-info">
+                    <div class="details">
+                        <p>{{ task.description }}</p>
+                        <p>{{ task.precio }}</p>
+                    </div>
+                </div>
+                <form method="post" action="{% url 'eliminar_tarea' task.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+                <a href="{% url 'editar_tarea' task.id %}">Editar</a>
             </div>
             {% endfor %}
-
-            <button class="toggle-button" onclick="toggleTasks()">Mostrar Todos los Productos</button>
-            <div id="all-tasks" style="display: none;">
-                <h2>Todos los productos</h2>
-                {% for task in all_tasks %}
-                <div class="item">
-                    <h3>{{ task.title }}</h3>
-                    <img src="{{ task.image }}" alt="Imagen del producto">
-                    <p>{{ task.description }}</p>
-                    <p>{{ task.precio }}</p>
-                </div>
-                {% empty %}
-                <p>No hay productos disponibles.</p>
-                {% endfor %}
-            </div>
         </div>
-
+        <button class="toggle-button" onclick="toggleTasks()">Mostrar Todos los Productos</button>
+        <div id="all-tasks">
+            <h2>Todos los productos</h2>
+            {% for task in all_tasks %}
+            <div class="container">
+                <h3>{{ task.title }}</h3>
+                <img src="{{ task.image }}" alt="Imagen del producto">
+                <div class="product-info">
+                    <div class="details">
+                        <p>{{ task.description }}</p>
+                        <p>{{ task.precio }}</p>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No hay productos disponibles.</p>
+            {% endfor %}
+        </div>
     </div>
 
     <div class="profile">
         <h2>{{ user.username }}</h2>
         <ul>
             <li><button class="auth-button" onclick="location.href='{% url 'create_task' %}'">Crear Tarea</button></li>
-            <li><button class="auth-button" onclick="location.href='#'">Eliminar Tarea</button></li>
-            <li><button class="auth-button" onclick="location.href='#'">Editar Tarea</button></li>
             <li><button class="auth-button" onclick="location.href='{% url 'logout' %}'">Cerrar Sesión</button></li>
         </ul>
     </div>
