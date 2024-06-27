@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <title>Perfil y Lista de Productos</title>
     <style>
-        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -15,10 +14,11 @@
             justify-content: center; /* Centra los elementos horizontalmente */
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #ccc; /* Color de fondo en gama de grises */
             padding: 20px;
+            height: 400%; /* Altura máxima del contenedor */
         }
-        
+
         /* Contenedor principal */
         .container {
             max-width: 2000px; /* Ancho máximo del contenido */
@@ -26,113 +26,187 @@
             display: flex;
             justify-content: flex-end; /* Alinea el perfil a la derecha */
             align-items: flex-start;
+            position: relative; /* Importante para usar position: sticky en profile */
+            overflow-y: auto; /* Scroll vertical cuando sea necesario */
+            height: 400%; /* Altura máxima del contenedor */
         }
-        
+
         /* Estilos del perfil */
         .profile {
             width: 300px; /* Ancho del perfil */
-            background-color: #fff;
+            height: 60%; /* Altura del perfil */
+            background-color: #8a83832c; /* Color de fondo con transparencia */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-left: auto; /* Mueve el perfil hacia la derecha */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            position: sticky;
+            top: 20px; /* Ajusta la distancia desde arriba */
+            left: 20px; /* Ajusta la distancia desde la izquierda */
         }
-        
+
+        /* Estilos de los botones */
+        .auth-button {
+            background-color: #555; /* Color de fondo del botón */
+            color: white; /* Color del texto */
+            padding: 15px 25px; /* Ajuste de padding */
+            border: none; /* Quitar borde */
+            border-radius: 15px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor a pointer */
+            transition: background-color 0.3s ease; /* Transición suave */
+            display: block; /* Mostrar como bloque para ocupar todo el ancho disponible */
+            margin-bottom: 10px; /* Espacio entre botones */
+            text-align: center; /* Centrar texto dentro del botón */
+            text-decoration: none; /* Quitar subrayado del enlace */
+            font-size: 18px; /* Tamaño de fuente */
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 200px; /* Ancho máximo */
+        }
+
+        .auth-button:hover {
+            background-color: #777; /* Cambio de color al pasar el mouse */
+        }
+
+        /* Estilos para el botón "Mostrar Todos los Productos" */
+        .toggle-button {
+            background-color: #555; /* Color de fondo del botón */
+            color: white; /* Color del texto */
+            padding: 15px 25px; /* Ajuste de padding */
+            border: none; /* Quitar borde */
+            border-radius: 15px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor a pointer */
+            transition: background-color 0.3s ease; /* Transición suave */
+            display: block; /* Mostrar como bloque para ocupar todo el ancho disponible */
+            margin-bottom: 10px; /* Espacio debajo del botón */
+            text-align: center; /* Centrar texto dentro del botón */
+            text-decoration: none; /* Quitar subrayado del enlace */
+            font-size: 18px; /* Tamaño de fuente */
+            width: 100%; /* Ocupa todo el ancho disponible */
+            max-width: 300px; /* Ancho máximo */
+        }
+
+        .toggle-button:hover {
+            background-color: #777; /* Cambio de color al pasar el mouse */
+        }
+
+        /* Ajustes adicionales */
         .profile img {
             width: 100%; /* Ocupa todo el ancho del contenedor */
             height: auto;
             border-radius: 50%;
             margin-bottom: 10px;
         }
-        
+
         .profile h2 {
             margin-bottom: 10px;
             text-align: center;
         }
-        
+
         .profile p {
             margin-bottom: 5px;
             text-align: center;
         }
-        
+
         .profile .logout {
             margin-top: 20px;
             text-align: center;
         }
-        
+
         .profile ul {
             list-style-type: none;
             padding: 0;
             margin-top: 20px;
             text-align: center;
         }
-        
+
         .profile ul li {
             margin-bottom: 10px;
         }
-        
+
         /* Estilos de los productos */
         .products {
             flex: 1; /* Ocupa el espacio restante */
             margin-left: 20px;
+            overflow-y: auto; /* Scroll vertical cuando sea necesario */
         }
-        
+
         .product {
             background-color: #fff;
             padding: 10px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
             margin-bottom: 20px;
         }
-        
+
         .product img {
             width: 100%;
             height: auto;
             border-radius: 8px;
             margin-bottom: 10px;
         }
-        
+
         .product h3 {
             margin-bottom: 5px;
         }
-        
+
         .product p {
             margin-bottom: 5px;
         }
     </style>
+
+
 </head>
 <body>
-    
-    <div class="container">
-        <div class="products">
-            <div class="product">
-                {% for tasks in tasks %}
-                    <div>
-                        <h3>{{tasks.title}}</h3>
-                        <img src="{{tasks.image}}">
-                        <p>{{tasks.desciption}}</p>
-                        <p>{{tasks.precio}}</p>
-                    </div>
-                    
-                {% endfor %}
-            
+<div class="container">
+    <div class="products">
+        <div class="product">
+            {% for task in user_tasks %}
+            <div>
+                <h3>{{ task.title }}</h3>
+                <img src="{{ task.image }}">
+                <p>{{ task.description }}</p>
+                <p>{{ task.precio }}</p>
             </div>
-            
-            <!-- Puedes agregar más productos aquí -->
-        </div>
-        
-        <div class="profile">
+            {% endfor %}
 
-            <h2>{{tasks.user.username}}</h2>
-            <ul>
-                <li><a href="{% url 'create_task' %}">Crear Tarea</a></li>
-                <li><a href="#">Eliminar Tarea</a></li>
-                <li><a href="#">Editar Tarea</a></li>
-                <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
-            </ul>
+            <button class="toggle-button" onclick="toggleTasks()">Mostrar Todos los Productos</button>
+            <div id="all-tasks" style="display: none;">
+                <h2>Todos los productos</h2>
+                {% for task in all_tasks %}
+                <div class="item">
+                    <h3>{{ task.title }}</h3>
+                    <img src="{{ task.image }}" alt="Imagen del producto">
+                    <p>{{ task.description }}</p>
+                    <p>{{ task.precio }}</p>
+                </div>
+                {% empty %}
+                <p>No hay productos disponibles.</p>
+                {% endfor %}
+            </div>
         </div>
+
     </div>
 
+    <div class="profile">
+        <h2>{{ user.username }}</h2>
+        <ul>
+            <li><button class="auth-button" onclick="location.href='{% url 'create_task' %}'">Crear Tarea</button></li>
+            <li><button class="auth-button" onclick="location.href='#'">Eliminar Tarea</button></li>
+            <li><button class="auth-button" onclick="location.href='#'">Editar Tarea</button></li>
+            <li><button class="auth-button" onclick="location.href='{% url 'logout' %}'">Cerrar Sesión</button></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function toggleTasks() {
+        var allTasksDiv = document.getElementById('all-tasks');
+        if (allTasksDiv.style.display === 'none') {
+            allTasksDiv.style.display = 'block';
+        } else {
+            allTasksDiv.style.display = 'none';
+        }
+    }
+</script>
 </body>
 </html>
 {% endblock %}

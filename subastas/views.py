@@ -48,8 +48,10 @@ def loginP(request):
             })
 
 def perfil(request):
-    tasks=Task.objects.filter(user=request.user)
-    return render(request, 'perfil.html', {'tasks':tasks})
+    user_tasks = Task.objects.filter(user=request.user)
+    all_tasks = Task.objects.all()
+    return render(request, 'perfil.html', {'user_tasks': user_tasks, 'all_tasks': all_tasks})
+
 
 def crate_task (request):
     if request.method == 'GET':

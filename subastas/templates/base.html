@@ -20,24 +20,43 @@
         header {
             background-color: #333; /* Color de fondo para el encabezado */
             color: white; /* Color del texto */
-            padding: 5px; /* Espaciado interno */
+            padding: 10px; /* Espaciado interno */
             text-align: center;
             width: 100%; /* Ancho completo del contenedor */
             position: fixed; /* Fijar el encabezado */
             top: 0; /* Fijar en la parte superior */
             left: 0;
+            display: flex;
+            justify-content: space-between; /* Alinear elementos al final */
+            align-items: center; /* Centrar verticalmente */
         }
         
-        /* Estilos del pie de página */
-        footer {
-            background-color: #333; /* Color de fondo para el pie de página */
+        /* Estilos específicos para los botones de autenticación en el encabezado */
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 20px; /* Ajuste el margen derecho según sea necesario */
+        }
+        
+        .header-buttons .auth-button {
+            background-color: #555; /* Color de fondo del botón */
             color: white; /* Color del texto */
-            padding: 3px; /* Espaciado interno */
-            text-align: center;
-            width: 100%; /* Ancho completo del contenedor */
-            position: fixed; /* Fijar el pie de página */
-            bottom: 0; /* Fijar en la parte inferior */
-            left: 0;
+            padding: 10px 15px; /* Ajuste de padding */
+            border: none; /* Quitar borde */
+            border-radius: 20px; /* Borde redondeado */
+            cursor: pointer; /* Cambiar cursor a pointer */
+            transition: background-color 0.3s ease; /* Transición suave */
+            margin-left: 10px; /* Espacio entre botones */
+        }
+        
+        .header-buttons .auth-button a {
+            text-decoration: none; /* Quitar subrayado del enlace */
+            color: white; /* Color del texto del enlace */
+        }
+        
+        .header-buttons .auth-button:hover {
+            background-color: #777; /* Cambio de color al pasar el mouse */
         }
         
         /* Estilos del contenido */
@@ -48,7 +67,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
             text-align: center;
             max-width: 800px; /* Ancho máximo */
-            width: 200%; /* Ancho completo del contenedor */
+            width: 100%; /* Ancho completo del contenedor */
             margin-top: 80px; /* Ajuste para evitar que el contenido se superponga con el encabezado */
             margin-bottom: 80px; /* Ajuste para evitar que el contenido se superponga con el pie de página */
         }
@@ -70,57 +89,48 @@
         p, h2 {
             margin: 10px 0; /* Margen superior e inferior */
         }
-        /* Estilos específicos para los botones de autenticación en el encabezado */
-.header-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 20px; /* Ajuste el margen derecho según sea necesario */
-}
 
-.header-buttons .auth-button {
-    background-color: #555; /* Color de fondo del botón */
-    color: white; /* Color del texto */
-    padding: 10px 15px; /* Ajuste de padding */
-    border: none; /* Quitar borde */
-    border-radius: 20px; /* Borde redondeado */
-    cursor: pointer; /* Cambiar cursor a pointer */
-    transition: background-color 0.3s ease; /* Transición suave */
-    margin-left: 10px; /* Espacio entre botones */
-}
+        /* Centrar título del encabezado */
+        header h1 {
+            text-align: center;
+            margin: 0;
+        }
 
-.header-buttons .auth-button a {
-    text-decoration: none; /* Quitar subrayado del enlace */
-    color: white; /* Color del texto del enlace */
-}
-
-.header-buttons .auth-button:hover {
-    background-color: #777; /* Cambio de color al pasar el mouse */
-}
-
+        /* Estilos del pie de página */
+        footer {
+            background-color: #333; /* Color de fondo para el pie de página */
+            color: white; /* Color del texto */
+            padding: 10px; /* Espaciado interno */
+            text-align: center;
+            width: 100%; /* Ancho completo del contenedor */
+            display: flex;
+            justify-content: center; /* Alinear contenido al centro horizontal */
+            align-items: center; /* Alinear contenido al centro vertical */
+            position: fixed; /* Fijar el pie de página */
+            bottom: 0; /* Fijar en la parte inferior */
+            left: 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Subastas JC</h1>
         
-        {% if not user.is_authenticated %}
-        <!-- Si el usuario no está autenticado -->
         <div class="header-buttons">
+            {% if not user.is_authenticated %}
+            <!-- Si el usuario no está autenticado -->
             <button class="auth-button">
                 <a href="/login/">Registrarse</a>
             </button>
             <button class="auth-button">
                 <a href="/signin/">Iniciar sesión</a>
             </button>
-            
-        {% endif %}
+            {% endif %}
+        </div>
     </header>
-    
         {% block content %}
         <!-- Contenido específico de cada página irá aquí -->
         {% endblock %}
- 
     <footer>
         <h6>Juan Carlos Jaimes</h6>
     </footer>
