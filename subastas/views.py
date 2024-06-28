@@ -9,6 +9,8 @@ from django.db import IntegrityError
 from .forms import TaskForm
 from .models import Task
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+import os
 def home(request):
     tareas = Task.objects.all()
     return render(request, 'index.html', {'task': tareas})
@@ -59,7 +61,6 @@ def crate_task (request):
         return render (request, 'create_task.html', {
             'form': TaskForm         
         })
-        
     else:
         try:
             form = TaskForm(request.POST)
@@ -95,6 +96,7 @@ def editar_tarea(request, task_id):
 def signout(request):
     logout(request)
     return redirect('home')
+
 def signin(request):
     if request.method == 'GET' :
         return render (request, 'signin.html',{
