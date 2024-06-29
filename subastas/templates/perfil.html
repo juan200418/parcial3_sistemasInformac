@@ -7,313 +7,319 @@
     <meta charset="UTF-8">
     <title>Perfil y Lista de Productos</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            margin: 0;
-            background-color: #ccc;
-            padding: 20px;
-            height: 400%;
-        }
+            body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 0;
+        background-color: #ccc;
+        padding: 20px;
+        height: 100vh;
+        overflow: hidden;
+    }
 
-        .container {
-            max-width: 2000px;
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
-            position: relative;
-            overflow-y: auto;
-            height: 400%;
-        }
+    .container {
+        max-width: 2000px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        overflow-y: auto;
+    }
 
-        .profile {
-            width: 300px;
-            height: 60%;
-            background-color: #8a83832c;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 20px;
-            left: 20px;
-        }
+    .profile {
+        width: 300px;
+        background-color: #8a83832c;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 20px;
+    }
 
-        .auth-button {
-            background-color: #555;
-            color: white;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block;
-            margin-bottom: 10px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            width: 100%;
-            max-width: 200px;
-        }
+    .auth-button {
+        background-color: #555;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        width: 100%;
+        max-width: 200px;
+    }
 
-        .auth-button:hover {
-            background-color: #777;
-        }
+    .auth-button:hover {
+        background-color: #777;
+    }
 
-        .toggle-button {
-            background-color: #555;
-            color: white;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: block;
-            margin-bottom: 10px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            width: 100%;
-            max-width: 300px;
-        }
+    .toggle-button {
+        background-color: #555;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        width: 100%;
+        max-width: 300px;
+    }
 
-        .toggle-button:hover {
-            background-color: #777;
-        }
+    .toggle-button:hover {
+        background-color: #777;
+    }
 
-        .profile img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
+    .profile img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
 
-        .profile h2 {
-            margin-bottom: 10px;
-            text-align: center;
-        }
+    .profile h2 {
+        margin-bottom: 10px;
+        text-align: center;
+    }
 
-        .profile p {
-            margin-bottom: 5px;
-            text-align: center;
-        }
+    .profile p {
+        margin-bottom: 5px;
+        text-align: center;
+    }
 
-        .profile .logout {
-            margin-top: 20px;
-            text-align: center;
-        }
+    .profile .logout {
+        margin-top: 20px;
+        text-align: center;
+    }
 
-        .profile ul {
-            list-style-type: none;
-            padding: 0;
-            margin-top: 20px;
-            text-align: center;
-        }
+    .profile ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
 
-        .profile ul li {
-            margin-bottom: 10px;
-        }
+    .profile ul li {
+        margin-bottom: 10px;
+    }
 
-        .products {
-            flex: 1;
-            margin-left: 20px;
-            overflow-y: auto;
-        }
+    .products {
+        flex: 1;
+        margin-left: 20px;
+        overflow-y: auto;
+    }
 
-        .product {
-            background-color: #cacaca;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
+    .product {
+        background-color: #cacaca;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
 
-        .product img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+    .product img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
 
-        .product h3 {
-            margin-bottom: 5px;
-        }
+    .product h3 {
+        margin-bottom: 5px;
+    }
 
-        .product p {
-            margin-bottom: 5px;
-        }
+    .product p {
+        margin-bottom: 5px;
+    }
 
-        .product-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            max-width: 95%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+    .product-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        max-width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-        .product-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
+    .product-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
 
-        .product-container h3 {
-            margin-bottom: 10px;
-        }
+    .product-container h3 {
+        margin-bottom: 10px;
+    }
 
-        .product-container p {
-            margin-bottom: 10px;
-        }
+    .product-container p {
+        margin-bottom: 10px;
+    }
 
-        .product-info {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-        .product-info .details {
-            flex: 1;
-            margin-left: 20px;
-        }
+    .product-info .details {
+        flex: 1;
+        margin-top: 10px;
+    }
 
-        .product-container form,
-        .product-container a {
-            margin-top: 10px;
-        }
+    .product-container form,
+    .product-container a {
+        margin-top: 10px;
+    }
 
-        .product-container a {
-            background-color: #555;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+    .product-container a {
+        background-color: #555;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
 
-        .product-container a:hover {
-            background-color: #777;
-        }
+    .product-container a:hover {
+        background-color: #777;
+    }
 
-        .product-container button {
-            background-color: #e74c3c;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .product-container button {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-        .product-container button:hover {
-            background-color: #c0392b;
-        }
+    .product-container button:hover {
+        background-color: #c0392b;
+    }
 
-        #all-tasks {
-            display: none;
-            margin-top: 20px;
-        }
+    #all-tasks {
+        display: none;
+        margin-top: 20px;
+    }
 
-        #all-tasks h2 {
-            margin-bottom: 10px;
-        }
+    #all-tasks h2 {
+        margin-bottom: 10px;
+    }
 
-        #all-tasks .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            max-width: 95%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
+    #all-tasks .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        max-width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        #all-tasks .container img {
-            width: 200px;
-            height: auto;
-            border-radius: 8px;
-            margin-right: 20px;
-        }
+    #all-tasks .container img {
+        width: 200px;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
 
-        #all-tasks .container h3 {
-            margin-bottom: 10px;
-        }
+    #all-tasks .container h3 {
+        margin-bottom: 10px;
+    }
 
-        #all-tasks .container p {
-            margin-bottom: 10px;
-        }
+    #all-tasks .container p {
+        margin-bottom: 10px;
+    }
+
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="products">
-        <div class="product">
-            {% for task in user_tasks %}
-            <div class="container product-container">
-                <h3>{{ task.title }}</h3>
-                <img src="{{ task.image }}" alt="Imagen del producto">
-                <div class="product-info">
-                    <div class="details">
-                        <p>{{ task.description }}</p>
-                        <p>{{ task.precio }}</p>
-                        <h2>{{ user.username }}</h2>
+    <div class="container">
+        <div class="products">
+            <div class="product">
+                {% for task in user_tasks %}
+                <div class="container product-container">
+                    <h3>{{ task.title }}</h3>
+                    {% if task.image %}
+                        <img src="{{ task.image.url }}" alt="Imagen del producto">
+                    {% else %}
+                        <p>No hay imagen disponible.</p>
+                    {% endif %}
+                    <div class="product-info">
+                        <div class="details">
+                            <p>{{ task.description }}</p>
+                            <p>{{ task.precio }}</p>
+                        </div>
+                    </div>
+                    <form method="post" action="{% url 'eliminar_tarea' task.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Eliminar</button>
+                    </form>
+                    <a href="{% url 'editar_tarea' task.id %}">Editar</a>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="toggle-button" onclick="toggleTasks()">Mostrar Todos los Productos</button>
+            <div id="all-tasks" style="display: none;">
+                <h2>Todos los productos</h2>
+                {% for task in all_tasks %}
+                <div class="container">
+                    <h3>{{ task.title }}</h3>
+                    {% if task.image %}
+                        <img src="{{ task.image.url }}" alt="Imagen del producto">
+                    {% else %}
+                        <p>No hay imagen disponible.</p>
+                    {% endif %}
+                    <div class="product-info">
+                        <div class="details">
+                            <p>{{ task.description }}</p>
+                            <p>{{ task.precio }}</p>
+                        </div>
                     </div>
                 </div>
-                <form method="post" action="{% url 'eliminar_tarea' task.id %}">
-                    {% csrf_token %}
-                    <button type="submit">Eliminar</button>
-                </form>
-                <a href="{% url 'editar_tarea' task.id %}">Editar</a>
+                {% empty %}
+                <p>No hay productos disponibles.</p>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-        <button class="toggle-button" onclick="toggleTasks()">Mostrar Todos los Productos</button>
-        <div id="all-tasks">
-            <h2>Todos los productos</h2>
-            {% for task in all_tasks %}
-            <div class="container">
-                <h3>{{ task.title }}</h3>
-                <img src="{{ task.image }}" alt="Imagen del producto">
-                <div class="product-info">
-                    <div class="details">
-                        <p>{{ task.description }}</p>
-                        <p>{{ task.precio }}</p>
-                    </div>
-                </div>
-            </div>
-            {% empty %}
-            <p>No hay productos disponibles.</p>
-            {% endfor %}
+    
+        <div class="profile">
+            <h2>{{ user.username }}</h2>
+            <ul>
+                <li><button class="auth-button" onclick="location.href='{% url 'create_task' %}'">Crear Tarea</button></li>
+                <li><button class="auth-button" onclick="location.href='{% url 'logout' %}'">Cerrar Sesión</button></li>
+            </ul>
         </div>
     </div>
-
-    <div class="profile">
-        <h2>{{ user.username }}</h2>
-        <ul>
-            <li><button class="auth-button" onclick="location.href='{% url 'create_task' %}'">Crear Tarea</button></li>
-            <li><button class="auth-button" onclick="location.href='{% url 'logout' %}'">Cerrar Sesión</button></li>
-        </ul>
-    </div>
-</div>
-
-<script>
-    function toggleTasks() {
-        var allTasksDiv = document.getElementById('all-tasks');
-        if (allTasksDiv.style.display === 'none') {
-            allTasksDiv.style.display = 'block';
-        } else {
-            allTasksDiv.style.display = 'none';
+    
+    <script>
+        function toggleTasks() {
+            var allTasksDiv = document.getElementById('all-tasks');
+            if (allTasksDiv.style.display === 'none') {
+                allTasksDiv.style.display = 'block';
+            } else {
+                allTasksDiv.style.display = 'none';
+            }
         }
-    }
-</script>
-</body>
+    </script>
+    </body>
 </html>
 {% endblock %}
