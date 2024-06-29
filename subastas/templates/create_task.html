@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        <h1>Crear Subasta</h1>
+<div class="container">
+    <h1>Crear Subasta</h1>
 
-        {% if error %}
-            <p style="color: red;">{{ error }}</p>
-        {% endif %}
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
 
-        <form action="/perfil/create" method="POST" class="create-form">
-            {% csrf_token %}
+    <form action="/perfil/create" method="POST" class="create-form">
+        {% csrf_token %}
 
-            {{ form.as_p }}
+        {{ form.as_p }}
 
-            <button type="submit" class="submit-button">
-                Crear Subasta
-            </button>
-        </form>
-    </div>
+        <button type="submit" class="submit-button">
+            Crear Subasta
+        </button>
+    </form>
+</div>
+
 
     <style>
         body {

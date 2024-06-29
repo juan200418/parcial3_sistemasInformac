@@ -15,7 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from subastas import views
+from django.conf import settings
+from django.conf.urls.static import static
 from subastas import views
 
 urlpatterns = [
@@ -29,3 +32,6 @@ urlpatterns = [
     path('eliminar_tarea/<int:task_id>/', views.eliminar_tarea, name='eliminar_tarea'),
     path('editar_tarea/<int:task_id>/', views.editar_tarea, name='editar_tarea'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

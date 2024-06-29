@@ -264,6 +264,7 @@
                     <div class="details">
                         <p>{{ task.description }}</p>
                         <p>{{ task.precio }}</p>
+                        <h2>{{ user.username }}</h2>
                     </div>
                 </div>
                 <form method="post" action="{% url 'eliminar_tarea' task.id %}">

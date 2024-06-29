@@ -56,22 +56,28 @@ def perfil(request):
     return render(request, 'perfil.html', {'user_tasks': user_tasks, 'all_tasks': all_tasks})
 
 @login_required
-def crate_task (request):
+def crate_task(request):
     if request.method == 'GET':
-        return render (request, 'create_task.html', {
-            'form': TaskForm         
+        return render(request, 'create_task.html', {
+            'form': TaskForm()  # Instancia del formulario para enviar al template
         })
     else:
         try:
-            form = TaskForm(request.POST)
-            new_Task = form.save(commit=False)
-            new_Task.user = request.user
-            new_Task.save()
-            return redirect('perfil')
+            form = TaskForm(request.POST, request.FILES)  # Asegúrate de pasar request.FILES para manejar archivos
+            if form.is_valid():
+                new_task = form.save(commit=False)
+                new_task.user = request.user
+                new_task.save()
+                return redirect('perfil')
+            else:
+                return render(request, 'create_task.html', {
+                    'form': TaskForm(),  # Instancia del formulario con errores para enviar al template
+                    'error': 'Por favor, proporciona datos válidos.'
+                })
         except ValueError:
             return render(request, 'create_task.html', {
-                "form": TaskForm,
-                'error ': 'pleace privide valida data'
+                'form': TaskForm(),
+                'error': 'Ha ocurrido un error. Por favor, intenta nuevamente.'
             })
 @login_required
 def eliminar_tarea(request, task_id):
